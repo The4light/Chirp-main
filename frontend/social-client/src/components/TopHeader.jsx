@@ -1,10 +1,10 @@
 export default function TopHeader() {
   return (
-    <header className="h-16 bg-white border-b border-gray-200 flex items-center px-6 sticky top-0 z-10">
+    <header className="h-16 bg-white border-b border-gray-200 flex items-center px-6 fixed top-0 left-[220px] right-[320px] z-20">
       {/* Left: Logo & App Name */}
       <div className="flex items-center gap-3 w-64">
         <div className="w-10 h-10 bg-black rounded-lg flex items-center justify-center text-white font-bold">
-          C
+          bird
         </div>
         <span className="text-xl font-bold">Chirp</span>
       </div>

@@ -79,7 +79,7 @@ export default function Home() {
       <div className="flex">
         <LeftSidebar />
 
-        <main className="flex-1 bg-white max-w-3xl mx-auto border-x border-gray-200">
+        <main className="flex-1 bg-white ml-[220px] mr-[320px] mt-16">
           {/* Timeline header */}
           <div className="border-b border-gray-200 px-4 py-3 sticky top-16 z-10 bg-white">
             <h2 className="text-lg font-semibold">Home Timeline</h2>
