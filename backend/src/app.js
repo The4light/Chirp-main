@@ -1,7 +1,12 @@
 const express = require('express');
 const app = express();
 
+//middleware
 app.use(express.json());
+app.get('/health', (req, res) => {
+  res.status(200).json({ status: 'ok' });
+});
+
 
 // routes
 const authRoutes = require('./routes/auth.routes');
