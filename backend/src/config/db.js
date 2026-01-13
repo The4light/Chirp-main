@@ -15,7 +15,7 @@ const connectDB = async () => {
         db.once('open', () => {
             console.log("Database sucessfully opened");
         })
-        console.log("✅ Sucessfully connected");
+        console.log("✅ Database Sucessfully connected");
     }
     catch(err){
         console.log(`❌ COULD NOT CONNECT SUCCESSFULLY x${err.message}`);

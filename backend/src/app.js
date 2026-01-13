@@ -1,14 +1,26 @@
-const express = require('express'); // require express
-const app = express(); // initialize the application and store the express object in a constant app i guess
-
-const feedRoute = require('./routes/feed.routes');
-const postRoute = require('./routes/posts.routes');
+const express = require('express');
+const app = express();
 
 app.use(express.json());
 
-app.use('/api', feedRoute)
+// routes
+const authRoutes = require('./routes/auth.routes');
+const trendingRoutes = require('./routes/trending.routes');
+const postRoutes = require('./routes/posts.routes');
+const feedRoutes = require('./routes/feed.routes');
+const likeRoutes = require('./routes/likes.routes');
+const searchRoutes = require('./routes/search.routes');
 
-app.use('/api', postRoute)
+app.use('/auth', authRoutes);
+
+// 🔥 TRENDING FIRST (even with namespace)
+app.use('/posts/trending', trendingRoutes);
+
+// then posts
+app.use('/posts', postRoutes);
+
+app.use('/feed', feedRoutes);
+app.use('/', likeRoutes);
+app.use('/search', searchRoutes);
 
 module.exports = app;
-

@@ -1,27 +1,24 @@
 const Post = require('../models/Post');
 
-exports.getPostByOrder = async(req,res) => {
-        const {cursor, limit = 10 } = req.query;
-        
-         try{
-                const query = cursor ? {createdAt : {$lt : new Date(cursor)}} : {};
+exports.getFeed = async (req, res) => {
+  try {
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 20;
+    const skip = (page - 1) * limit;
 
-                const posts  = Post.find(query)
-                .sort({createdAt : -1})
-                .limit(parseInt(limit) + 1)
-                .exec();
+    const posts = await Post.find()
+      .sort({ createdAt: -1 })
+      .skip(skip)
+      .limit(limit)
+      .populate('authorId', 'username email');
 
-                
-
-                res.status(200).json({
-                        message : "posts retrieval by order successfull",
-                        posts : posts
-                })
-        }
-        catch(err){
-                res.status(404).json({
-                        message : "Failed to retrieve posts by order",
-                        err : err
-                })
-        }
-}
+    res.json({
+      page,
+      limit,
+      count: posts.length,
+      posts,
+    });
+  } catch (err) {
+    res.status(500).json({ message: 'Server error' });
+  }
+};
