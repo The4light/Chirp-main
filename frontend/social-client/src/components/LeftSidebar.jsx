@@ -53,35 +53,72 @@ export default function LeftSidebar() {
   ];
 
   return (
-    <aside className="w-[220px] h-screen bg-[#f8f9fa] border-r border-gray-200 fixed left-0 top-0 flex flex-col">
+    <>
+      {/* Desktop Sidebar */}
+      <aside className="hidden lg:flex w-[220px] h-screen bg-[#f8f9fa] border-r border-gray-200 fixed left-0 top-0 flex-col">
+        {/* Logo */}
+        <div className="p-4 flex items-center gap-2 border-b border-gray-200">
+          <div className="w-8 h-8 bg-black rounded flex items-center justify-center">
+            <span className="text-white font-semibold">C</span>
+          </div>
+          <span className="font-semibold">Chirp</span>
+        </div>
 
-      {/* Navigation */}
-      <nav className="flex-1 p-3">
-        {navItems.map((item) => {
-          const isActive = location.pathname === item.path;
-          return (
-            <Link
-              key={item.path}
-              to={item.path}
-              className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg mb-1 transition-colors ${
-                isActive
-                  ? "bg-[#e8eaed] text-gray-900 font-medium"
-                  : "text-gray-700 hover:bg-gray-100"
-              }`}
-            >
-              {item.icon}
-              <span className="text-sm">{item.label}</span>
-            </Link>
-          );
-        })}
+        {/* Navigation */}
+        <nav className="flex-1 p-3">
+          {navItems.map((item) => {
+            const isActive = location.pathname === item.path;
+            return (
+              <Link
+                key={item.path}
+                to={item.path}
+                className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg mb-1 transition-colors ${
+                  isActive
+                    ? "bg-[#e8eaed] text-gray-900 font-medium"
+                    : "text-gray-700 hover:bg-gray-100"
+                }`}
+              >
+                {item.icon}
+                <span className="text-sm">{item.label}</span>
+              </Link>
+            );
+          })}
+        </nav>
+
+        {/* New Post Button */}
+        <div className="p-3 border-t border-gray-200">
+          <button className="w-full bg-black text-white hover:bg-gray-800 rounded-full py-2.5 font-medium text-sm transition-colors">
+            New Post
+          </button>
+        </div>
+      </aside>
+
+      {/* Mobile Bottom Navigation */}
+      <nav className="lg:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 z-50">
+        <div className="flex justify-around items-center h-16">
+          {navItems.slice(0, 4).map((item) => {
+            const isActive = location.pathname === item.path;
+            return (
+              <Link
+                key={item.path}
+                to={item.path}
+                className={`flex flex-col items-center justify-center flex-1 h-full transition-colors ${
+                  isActive ? "text-black" : "text-gray-500"
+                }`}
+              >
+                {item.icon}
+              </Link>
+            );
+          })}
+        </div>
       </nav>
 
-      {/* New Post Button */}
-      <div className="p-3 border-t border-gray-200">
-        <button className="w-full bg-black text-white hover:bg-gray-800 rounded-full py-2.5 font-medium text-sm transition-colors">
-          New Post
-        </button>
-      </div>
-    </aside>
+      {/* Mobile Floating Action Button for New Post */}
+      <button className="lg:hidden fixed bottom-20 right-4 w-14 h-14 bg-blue-600 text-white rounded-full shadow-lg flex items-center justify-center z-50 hover:bg-blue-700 transition-colors">
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+        </svg>
+      </button>
+    </>
   );
 }

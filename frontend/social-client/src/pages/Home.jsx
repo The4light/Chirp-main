@@ -73,15 +73,15 @@ export default function Home() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-h-screen bg-gray-100 pb-16 lg:pb-0">
       <TopHeader />
 
       <div className="flex">
         <LeftSidebar />
 
-        <main className="flex-1 bg-white ml-[220px] mr-[320px] mt-16">
-          {/* Timeline header */}
-          <div className="border-b border-gray-200 px-4 py-3 sticky top-16 z-10 bg-white">
+        <main className="flex-1 bg-white lg:ml-[220px] xl:mr-[320px] mt-14">
+          {/* Timeline header - Hidden on mobile */}
+          <div className="hidden lg:block border-b border-gray-200 px-4 py-3 sticky top-14 z-10 bg-white">
             <h2 className="text-lg font-semibold">Home Timeline</h2>
           </div>
 

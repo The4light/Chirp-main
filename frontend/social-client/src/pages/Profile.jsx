@@ -8,13 +8,13 @@ import ProfileFeed from "../components/profile/ProfileFeed";
 
 export default function Profile() {
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-h-screen bg-gray-100 pb-16 lg:pb-0">
       <TopHeader />
 
       <div className="flex">
         <LeftSidebar />
 
-        <main className="flex-1 bg-white ml-[220px] mr-[320px] mt-16">
+        <main className="flex-1 bg-white lg:ml-[220px] xl:mr-[320px] mt-14">
           <div className="p-4 space-y-4">
             <ProfileHeader />
             <ProfileStats />

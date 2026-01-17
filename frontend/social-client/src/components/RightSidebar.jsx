@@ -26,7 +26,7 @@ export default function RightSidebar() {
   ];
 
   return (
-    <aside className="w-[320px] h-screen fixed right-0 top-0 p-4 overflow-y-auto bg-white">
+    <aside className="hidden xl:block w-[320px] h-screen fixed right-0 top-0 p-4 overflow-y-auto bg-white">
       {/* Trending Topics */}
       <div className="bg-[#f8f9fa] rounded-xl p-4 mb-4">
         <div className="flex items-center gap-2 mb-4">
