@@ -6,6 +6,7 @@ import TopHeader from "../components/TopHeader";
 export default function Notifications() {
   const [activeTab, setActiveTab] = useState("all");
 
+
   const notifications = [
     {
       id: 1,
@@ -232,6 +233,7 @@ export default function Notifications() {
 }
 
 function NotificationItem({ type, user, handle, time, content, isRead }) {
+  const [expanded, setExpanded] = useState(false);
   const getIcon = () => {
     switch (type) {
       case "like":
@@ -321,9 +323,28 @@ function NotificationItem({ type, user, handle, time, content, isRead }) {
             </p>
 
             {content && (
-              <div className="mt-2 text-xs lg:text-sm text-gray-700 bg-gray-100 border border-gray-200 rounded-lg p-2 lg:p-3">
-                {content}
-              </div>
+<div
+  onClick={() => setExpanded(!expanded)}
+  className={`
+    mt-2
+    text-xs lg:text-sm
+    text-gray-700
+    bg-gray-100
+    border border-gray-200
+    rounded-lg
+    p-2 lg:p-3
+    break-words
+    cursor-pointer
+    transition-all
+    ${expanded ? '' : 'line-clamp-2 lg:line-clamp-3'}
+  `}
+>
+  {content}
+</div>
+
+
+
+
             )}
 
             {type === "follow" && (
