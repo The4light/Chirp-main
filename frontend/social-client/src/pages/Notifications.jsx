@@ -313,7 +313,7 @@ function NotificationItem({ type, user, handle, time, content, isRead }) {
             className="w-9 h-9 lg:w-10 lg:h-10 rounded-full flex-shrink-0"
           />
           <div className="flex-1 min-w-0">
-            <p className="text-xs lg:text-sm">
+            <p className="text-xs lg:text-sm break-words">
               <span className="font-semibold">{user}</span>{" "}
               <span className="text-gray-500">@{handle}</span>{" "}
               <span className="text-gray-500">{getActionText()}</span>{" "}
@@ -321,7 +321,7 @@ function NotificationItem({ type, user, handle, time, content, isRead }) {
             </p>
 
             {content && (
-              <div className="mt-2 text-xs lg:text-sm text-gray-700 bg-gray-100 border border-gray-200 rounded-lg p-2 lg:p-3">
+              <div className="mt-2 text-xs lg:text-sm text-gray-700 bg-gray-100 border border-gray-200 rounded-lg p-2 lg:p-3 break-words overflow-wrap-anywhere">
                 {content}
               </div>
             )}
