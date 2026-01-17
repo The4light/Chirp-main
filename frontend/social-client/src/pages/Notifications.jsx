@@ -326,25 +326,22 @@ function NotificationItem({ type, user, handle, time, content, isRead }) {
 <div
   onClick={() => setExpanded(!expanded)}
   className={`
-    mt-2
+    mt-1.5
     text-xs lg:text-sm
-    text-gray-700
-    bg-gray-100
-    border border-gray-200
+    text-gray-600
+    bg-gray-50
+    border border-gray-100
     rounded-lg
-    p-2 lg:p-3
+    p-1.5 lg:p-3
     break-words
     cursor-pointer
+    select-none
     transition-all
-    ${expanded ? '' : 'line-clamp-2 lg:line-clamp-3'}
+    ${expanded ? '' : 'line-clamp-1 sm:line-clamp-2 lg:line-clamp-3'}
   `}
 >
   {content}
 </div>
-
-
-
-
             )}
 
             {type === "follow" && (
